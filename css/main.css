@@ -1,24 +1,36 @@
+header{
+    margin: 0px;
+    padding: 0px;
+}
 .navigation{
+    background-color: #76daec;
     text-align: center;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+main{
+    width: 1000px;
+    margin: auto;
 }
 h1{
     text-align: center;
 }
 .possibility{
-    border: 2px solid #cccccc;
+    background-color: #d28e8e;
     float: left;
 }
 .equipment_list{
-    border: 2px solid #cccccc;
+    background-color: #d1d583;
     float: right;
 }
 .developer{
-    border: 2px solid #cccccc;
-    float: left;
-    margin top: 1500px;
+    background-color: #6ed07e;
+    margin-top: 200px;
 }
 .contacts{
-    float: left;
-    width: 50%;
+    text-align: center;
     background-color: #ccc;
+    margin-top: 200px;
 }
