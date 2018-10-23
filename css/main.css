@@ -11,6 +11,8 @@ body{
     padding: 0px;
 }
 main{
+    background-color: #b49ce9;
+    background-image: url(../img/upkm.jpg);
     width: 1000px;
     margin: auto;
 }
