@@ -17,7 +17,10 @@ h1{
     float: left;
     margin top: 1500px;
 }
-footer{
-    border: 2px solid #cccccc;
-    margin top: 1500px;
+.contacts{
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    background-color: #ccc;
 }
