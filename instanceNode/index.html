@@ -14,7 +14,7 @@
                 console.log('reader', reader);
 
                 var img1 = document.getElementById('imgId');
-                console.log('img1 = ', img1);
+                console.log('onImageChange img1 = ', img1);
                 var file = document.getElementById("inputId").files[0];
                 console.log('file = ', file);
 
@@ -24,7 +24,6 @@
                 }
 
                 if (file) {
-                    //console.log('reader.readAsDataURL(file) = ', reader.readAsDataURL(file));
                     reader.readAsDataURL(file);
                 } else {
                     img1.src = "";
@@ -33,40 +32,19 @@
 
             function sub(){
                 console.log('sub');
+                var file = document.getElementById("inputId").files[0];
                 var formData = new FormData();
-                var img1 = document.getElementById('imgId');
+                formData.append('picture', file);
 
-
-                var img2 = img1.src;
-                var json = JSON.stringify(img2);//{"1":"aa", "2":"bb"});
-                formData.append('picture', img2, 'test.jpeg');
-                //console.log('json', json);
-                //console.log('img2 = ', img2);
-                fetch('/', {method: 'POST', headers: {"Content-Type": "image/jpeg"}, body: img2})
-                //fetch('/', {method: 'POST', headers: {"Content-Type": "multipart/form-data"}, body: formData})
-                //fetch('/', {method: 'POST', headers: {"Content-Type": "application/json"}, body: json})
-                //.then(res => console.log(res));
-/*
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "/", true);
-                xhr.setRequestHeader("Content-Type", "multipart/form-data");
-                xhr.onreadystatechange = function() {//Call a function when the state changes.
-                    if(xhr.readyState === 4 && xhr.status === 200) {
-                    alert(xhr.responseText);
-                    }
-                };
-                xhr.send(formData);
-*/
+                fetch('/', {
+                        method: 'POST',
+                        body: formData
+                    });
             };
         </script>
-
-
-        <form  method="post" enctype="multipart/form-data" >
-            <img id="imgId" src="" alt="...">
-            <input id="inputId" type="file" name="avatar" >
-            <input id="subId" type="submit" value="sub" >
-            <button type="button" name="button" onchange="sub()">button1</button>
-        </form>
-
+        <img id="imgId" src="" alt="...">
+        <input id="inputId" type="file" name="avatar" onchange="onImageChange()">
+        <input id="subId" type="submit" value="sub" >
+<button type="button" name="button" onclick="sub()">button1</button>
     </body>
 </html>
