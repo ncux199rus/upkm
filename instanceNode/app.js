@@ -3,6 +3,7 @@ const app = express();
 const multer = require('multer');
 
 const storage = multer.diskStorage({
+    //fileFilter - not working!!!!!!!!
     fileFilter: function (req, file, cb) {
         if (file.mimetype !== 'image/jpeg') {
             req.fileValidationError = 'goes wrong on the mimetype';
@@ -21,7 +22,7 @@ const upload = multer({ storage: storage });
 
 app.post('/', upload.any(), function(req, res){
     console.log("req = ", req.files);
-    res.send(req.files);
+    res.send(req.rawHeaders);
 });
 
 app.use('/', function(req, res){
