@@ -14,7 +14,7 @@
                 console.log('reader', reader);
 
                 var img1 = document.getElementById('imgId');
-                console.log('img1 = ', img1);
+                console.log('onImageChange img1 = ', img1);
                 var file = document.getElementById("inputId").files[0];
                 console.log('file = ', file);
 
@@ -24,7 +24,6 @@
                 }
 
                 if (file) {
-                    //console.log('reader.readAsDataURL(file) = ', reader.readAsDataURL(file));
                     reader.readAsDataURL(file);
                 } else {
                     img1.src = "";
@@ -33,7 +32,9 @@
 
             function sub(){
                 console.log('sub');
+                var file = document.getElementById("inputId").files[0];
                 var formData = new FormData();
+<<<<<<< HEAD
                 var img1 = document.getElementById('imgId');
                 var file = document.getElementById("inputId").files[0];
 console.log("file = ", file);
@@ -68,5 +69,19 @@ console.log("file = ", file);
             <button type="button" name="button" onclick="sub()">button1</button>
         </form>
 
+=======
+                formData.append('picture', file);
+
+                fetch('/', {
+                        method: 'POST',
+                        body: formData
+                    });
+            };
+        </script>
+        <img id="imgId" src="" alt="...">
+        <input id="inputId" type="file" name="avatar" onchange="onImageChange()">
+        <input id="subId" type="submit" value="sub" >
+<button type="button" name="button" onclick="sub()">button1</button>
+>>>>>>> 3d1c55e5ae9f4603abb475a892b86efcca025990
     </body>
 </html>
