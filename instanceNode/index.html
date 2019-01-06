@@ -35,14 +35,14 @@
                 console.log('sub');
                 var formData = new FormData();
                 var img1 = document.getElementById('imgId');
-
-
+                var file = document.getElementById("inputId").files[0];
+console.log("file = ", file);
                 var img2 = img1.src;
                 var json = JSON.stringify(img2);//{"1":"aa", "2":"bb"});
                 formData.append('picture', img2, 'test.jpeg');
                 //console.log('json', json);
                 //console.log('img2 = ', img2);
-                fetch('/', {method: 'POST', headers: {"Content-Type": "image/jpeg"}, body: img2})
+                fetch('/', {method: 'POST', body: img2})
                 //fetch('/', {method: 'POST', headers: {"Content-Type": "multipart/form-data"}, body: formData})
                 //fetch('/', {method: 'POST', headers: {"Content-Type": "application/json"}, body: json})
                 //.then(res => console.log(res));
@@ -65,7 +65,7 @@
             <img id="imgId" src="" alt="...">
             <input id="inputId" type="file" name="avatar" >
             <input id="subId" type="submit" value="sub" >
-            <button type="button" name="button" onchange="sub()">button1</button>
+            <button type="button" name="button" onclick="sub()">button1</button>
         </form>
 
     </body>
